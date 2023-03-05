@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getPhotos } from "./galleryState";
 
 function App() {
+  const dispatch = useDispatch();
+  const photos = useSelector((state) => state.gallery.photos);
+  useEffect(() => {
+    dispatch(getPhotos());
+  }, [dispatch]);
+  console.log(photos);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>USERS GALLERY</h1>
+      <p>This is a RRSS gallery, flipa con ella</p>
+      <hr />
+      <div className="Gallery">
+        {/* {photos.map(photo =>
+        <img 
+        key={}
+        />
+          )} */}
+      </div>
+      <button>VIEW MORE</button>
     </div>
   );
 }
