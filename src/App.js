@@ -2,7 +2,9 @@ import "./App.css";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getPhotos } from "./galleryState";
-
+// import { enableMapSet } from "immer";
+import produce from "immer";
+import { useImmer } from "use-immer";
 function App() {
   const dispatch = useDispatch();
   const photos = useSelector((state) => state.gallery.photos);
